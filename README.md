@@ -1,5 +1,13 @@
 # Tutorial Filter Data With React.js
 
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/thofik93/react-tutorial-filter-data">
+    <img src="https://miro.medium.com/max/1400/1*8R-XmPn8hEjZ2Hil84D4JA.png" alt="Logo" width="700" height="445">
+  </a>
+</p>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [Bootstrap](https://github.com/twbs).
 
 ## Link Demo
