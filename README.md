@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Tutorial Filter Data With React.js
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [Bootstrap](https://github.com/twbs).
 
 
 ## Available Scripts
