@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/thofik93/react-tutorial-filter-data">
+  <a href="https://medium.com/@techindustan/funny-programming-jokes-f4d9a9fdd816">
     <img src="https://miro.medium.com/max/1400/1*8R-XmPn8hEjZ2Hil84D4JA.png" alt="Logo" width="700" height="445">
   </a>
 </p>
