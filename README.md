@@ -6,13 +6,17 @@
   <a href="https://medium.com/@techindustan/funny-programming-jokes-f4d9a9fdd816">
     <img src="https://miro.medium.com/max/1400/1*8R-XmPn8hEjZ2Hil84D4JA.png" alt="Logo" width="700" height="445">
   </a>
+
+  <p align="center">
+    <strong>The purpose of this simple app is to introduce react router, data management with redux and unit testing with jest.</strong>
+        <br />
+        <br />
+        <a href="https://thofik93.github.io/react-tutorial-filter-data/">View Demo</a>
+  </p>
 </p>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [Bootstrap](https://github.com/twbs).
 
-## Link Demo
-
-[Demo](https://thofik93.github.io/react-tutorial-filter-data/)
 
 ## Available Scripts
 
