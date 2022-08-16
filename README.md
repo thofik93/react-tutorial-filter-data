@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [Bootstrap](https://github.com/twbs).
 
+## Link Demo
+
+[Demo](https://thofik93.github.io/react-tutorial-filter-data/)
 
 ## Available Scripts
 
