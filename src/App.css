@@ -14,13 +14,64 @@
   width: 840px;
 }
 
+
 .table tr:nth-child(even) {
   background-color: #EFF7FF;;
 }
 
 .table th {
+  user-select: none;
   cursor: pointer;
 }
+
+
+.table-sort-index-0 .table th:nth-child(1) {
+  background-color: rgb(240, 238, 238);
+}
+
+.table-sort-index-0 .table td:nth-child(1) {
+  background-color: rgb(247, 247, 247);
+}
+
+.table-sort-index-1 .table th:nth-child(2) {
+  background-color: rgb(240, 238, 238);
+}
+
+.table-sort-index-1 .table td:nth-child(2) {
+  background-color: rgb(247, 247, 247);
+}
+
+.table-sort-index-2 .table th:nth-child(3) {
+  background-color: rgb(240, 238, 238);
+}
+
+.table-sort-index-2 .table td:nth-child(3) {
+  background-color: rgb(247, 247, 247);
+}
+
+.table-sort-index-3 .table th:nth-child(4) {
+  background-color: rgb(240, 238, 238);
+}
+
+.table-sort-index-3 .table td:nth-child(4) {
+  background-color: rgb(247, 247, 247);
+}
+
+.table-sort-index-4 .table th:nth-child(5) {
+  background-color: rgb(240, 238, 238);
+}
+
+.table-sort-index-4 .table td:nth-child(5) {
+  background-color: rgb(247, 247, 247);
+}
+/* 
+.table-sort-index-5 .table th:nth-child(6) {
+  background-color: rgb(240, 238, 238);
+}
+
+.table-sort-index-5 .table td:nth-child(6) {
+  background-color: rgb(247, 247, 247);
+} */
 
 .placeholder {
   height: 420px;

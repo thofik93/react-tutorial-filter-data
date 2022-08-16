@@ -6,37 +6,52 @@ import Filters from './components/Filters';
 import Pagination from './components/Pagination';
 import { get } from './store/usersThunks';
 import { useSelector, useDispatch } from 'react-redux';
-const listInfoData = [
-	{
-		title: 'Username',
-		sortType: null,
-	},
-	{
-		title: 'Name',
-		sortType: null,
-	},
-	{
-		title: 'Email',
-		sortType: null,
-	},
-	{
-		title: 'Gender',
-		sortType: null,
-	},
-	{
-		title: 'Registered Date',
-		sortType: null,
-	}
+import {
+    useSearchParams,
+} from 'react-router-dom';
 
-]
 function App() {
 	const dispatch = useDispatch();
 	const statusData = useSelector((state) => state.users.statusData);
+	const filtersParams = useSelector((state) => state.filters.params);
 	const users = useSelector((state) => state.users.data);
+	const listInfoUser = useSelector((state) => state.filters.listInfoUser)
 	const showListUsers = statusData === 'succeeded' && users && users.length
-	const [listData, setListData] = useState(listInfoData)
+	const activeColumnSortIndex = useSelector((state) => state.filters.activeColumnSortIndex);
+	const [queryParams, setQueryParams] = useSearchParams();
+	const containerTableClassName = activeColumnSortIndex > -1 ? 'table-sort-index-' + activeColumnSortIndex : ''
 	const sortByHandler = (item) => {
-		console.log(item)
+		updateTableUI(item);
+	}
+	
+	const updateQueryParams = ({sortBy, sortOrder}) => {
+        let newQueryParams = Object.assign({ ...filtersParams }, { sortOrder, sortBy });
+        if ('page' in newQueryParams) {
+            delete newQueryParams.page;
+        }
+        dispatch({type: 'filters/setParams', data: newQueryParams}) 
+        setQueryParams(newQueryParams);
+	}
+
+	const updateTableUI = (item) => {
+		let copyListData = JSON.parse(JSON.stringify(listInfoUser));
+
+		for (let i =0; i < copyListData.length; i++) {
+			if (copyListData[i].title === item.title) {
+				if (Boolean(item.sortOrder) === false) {
+					copyListData[i].sortOrder = 'ascend'
+				} else if (item.sortOrder === 'ascend') {
+					copyListData[i].sortOrder = 'descend'
+				} else {
+					copyListData[i].sortOrder = 'ascend'
+				}
+				updateQueryParams({sortOrder: copyListData[i].sortOrder, sortBy: copyListData[i].field})
+				dispatch({type: 'filters/setActiveColumnSortIndex', data: i})
+			} else {
+				copyListData[i].sortOrder = null
+			}
+		}
+		dispatch({type: 'filters/setListInfoUser', data: copyListData})
 	}
 
 	useEffect(() => {
@@ -47,6 +62,7 @@ function App() {
 			dispatch(get(params))
 		}
 	}, [])
+	
 
 	return (
 		<div className="App">
@@ -63,11 +79,11 @@ function App() {
 				<div className="row row-cols-auto">
 					<div className="col">
 		
-						<div>
+						<div className={`${containerTableClassName}`}>
 							<table className="table">
 								<thead>
 									<tr>
-										{listData.map((item, key) => (
+										{listInfoUser.map((item, key) => (
 											<th 
 												key={key}
 												scope="col"
@@ -77,17 +93,19 @@ function App() {
 												<Icon 
 													options={{
 														style: {
-															fontSize: 12,
+															fontSize: 16,
+															color: item.sortOrder === 'ascend' ? 'green' : ''  
 														},
-														className: "bi bi-arrow-down",	
+														className: "bi bi-arrow-down-short",	
 													}} 
 												/>
 												<Icon 
 													options={{
 														style: {
-															fontSize: 12,
+															fontSize: 16,
+															color: item.sortOrder === 'descend' ? 'green' : ''  
 														},
-														className: "bi bi-arrow-up",	
+														className: "bi bi-arrow-up-short",	
 													}} 
 												/>
 											</th>

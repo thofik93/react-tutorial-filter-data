@@ -6,7 +6,7 @@ import {
 import { get } from '../store/usersThunks';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation } from "react-router-dom";
-
+import { listInfoUser } from '../global-data'
 const debounce = require('lodash.debounce');
 
 const Filters = (props) => {
@@ -73,6 +73,8 @@ const Filters = (props) => {
     const resetFilterHandler = () => {
         setQueryParams({})
         dispatch({type: 'filters/setParams', data: {} })
+        dispatch({type: 'filters/setListInfoUser', data: listInfoUser })
+        dispatch({type: 'filters/setActiveColumnSortIndex', data: -1})
         setGender('all')
         inputRef.current.value = ''
         dispatch(get())
@@ -140,7 +142,7 @@ const Filters = (props) => {
                                 />
                                 <div className="input-group-text">
                                     <Icon options={{
-                                        className: 'bi bi-search'
+                                         className: 'bi bi-search'
                                     }}
                                     />
                                 </div>
